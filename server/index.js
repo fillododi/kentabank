@@ -3,7 +3,13 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 
+//routes import
+import postRoutes from './routes/post.js'
+
+//server app declaration and configuration
 const app = express()
+
+app.use('/posts', postRoutes)
 
 app.use(bodyParser.json({extended: true}))
 app.use(bodyParser.urlencoded({extended: true}))
