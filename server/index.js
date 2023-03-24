@@ -9,11 +9,11 @@ import postRoutes from './routes/post.js'
 //server app declaration and configuration
 const app = express()
 
-app.use('/posts', postRoutes)
-
 app.use(bodyParser.json({extended: true}))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cors())
+
+app.use('/posts', postRoutes)
 
 //db connection (using https://www.mongodb.com/cloud/atlas and app startup
 const CONNECTION_URL = 'mongodb+srv://fillododi:zp5W88vOfzHdisGB@cluster0.t3oaub7.mongodb.net/?retryWrites=true&w=majority'

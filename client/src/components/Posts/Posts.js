@@ -1,9 +1,14 @@
 import React from "react";
+import {useSelector} from "react-redux";
+
 import Post from "./Post/Post";
 import useStyles from "../Form/styles";
 
 
 const Posts = () => {
+    const posts = useSelector((state)=> state.posts)
+    console.log(posts)
+
     const classes = useStyles()
     return <>
         <h1>Posts</h1>
