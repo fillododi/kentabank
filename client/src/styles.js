@@ -12,7 +12,9 @@ export default makeStyles(()=>({
         alignItems: 'center'
     },
     heading: {
-        color: 'rgba(78, 89, 140, 1)'
+        color: 'black',
+        fontFamily: 'Bill Corporate Narrow ExtraBold',
+        fontWeight: "bold"
     },
     image: {
         marginLeft: '15px'
