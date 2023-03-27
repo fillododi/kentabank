@@ -32,15 +32,17 @@ const Form = ({currentPostId, setCurrentPostId}) => {
         } else {
             dispatch(createPost(postData))
         }
+        clear()
     }
 
     const clear = () => {
-
+        setCurrentPostId(null)
+        setPostData({creator: '', title: '', message: '', tags: '', selectedFile: ''})
     }
 
     return <Paper className={classes.paper}>
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-            <Typography variant="h6">Crea un Post</Typography>
+            <Typography variant="h6">{currentPostId? 'Modifica il': 'Crea un'} Post</Typography>
             <TextField
                 name="creator"
                 variant="outlined"
