@@ -2,7 +2,7 @@ import {makeStyles} from "@material-ui/core/styles";
 
 //COLOR PALETTE: 4E598C FFFFFF F9C784 FCAF58 FF8C42
 
-export default makeStyles(()=>({
+export default makeStyles((theme)=>({
     appBar: {
         borderRadius: 15,
         margin: '30px 0',
@@ -18,5 +18,10 @@ export default makeStyles(()=>({
     },
     image: {
         marginLeft: '15px'
+    },
+    [theme.breakpoints.down('sm')]:{
+        mainContainer: {
+            flexDirection:"column-reverse"
+        }
     }
 }))

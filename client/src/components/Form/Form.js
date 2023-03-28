@@ -73,7 +73,7 @@ const Form = ({currentPostId, setCurrentPostId}) => {
                 label="Tag"
                 fullWidth
                 value={postData.tags}
-                onChange={(event)=>setPostData({...postData, tags: event.target.value})}
+                onChange={(event)=>setPostData({...postData, tags: event.target.value.split(',')})}
             />
             <div className={classes.fileInput}>
                 <FileBase
@@ -90,9 +90,11 @@ const Form = ({currentPostId, setCurrentPostId}) => {
                 type="submit"
                 fullWidth
             >
-                Crea
+                {currentPostId? 'Modifica': 'Crea'}
             </Button>
-            <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Cancella</Button>
+            <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>
+                {currentPostId? 'Annulla': 'Cancella'}
+            </Button>
         </form>
     </Paper>
 }

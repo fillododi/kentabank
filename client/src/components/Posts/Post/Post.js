@@ -9,7 +9,7 @@ import moment from "moment";
 import useStyles from "./styles";
 import {useDispatch} from "react-redux";
 
-import {deletePost} from "../../../actions/posts";
+import {deletePost, votePost} from "../../../actions/posts";
 const Post = ({post, setCurrentPostId}) => {
     const classes = useStyles()
     const dispatch = useDispatch()
@@ -30,16 +30,19 @@ const Post = ({post, setCurrentPostId}) => {
         </div>
         <Typography className={classes.title} variant="h5" gutterBottom>{post.title}</Typography>
         <CardContent>
-            <Typography className={classes.title} variant="h5" gutterBottom>{post.message}</Typography>
+            <Typography className={classes.title} variant="body2" color="textSecondary" component="p">
+                {post.message}
+            </Typography>
         </CardContent>
         <CardActions className={classes.cardActions}>
-            <Button size="small" color="primary" onClick={()=>{}}>
+            <Button size="small" color="primary" onClick={()=>{dispatch(votePost(post._id))}}>
                 <ThumbUpAltIcon fontSize="small"></ThumbUpAltIcon>
-                Vota {post.voteCount}
+                &nbsp; Vota &nbsp;
+                {post.voteCount}
             </Button>
             <Button size="small" color="primary" onClick={()=>{dispatch(deletePost(post._id))}}>
                 <DeleteIcon fontSize="small"></DeleteIcon>
-                Elimina
+                &nbsp; Elimina
             </Button>
         </CardActions>
     </Card>

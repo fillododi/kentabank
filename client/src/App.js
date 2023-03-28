@@ -18,12 +18,16 @@ const App = () => {
 
     return <Container maxWidth="lg">
         <AppBar className={classes.appBar} position="static" color="inherit">
-            <Typography className={classes.heading} variant="h2" align="center">KentaBank</Typography>
+            <Typography className={classes.heading} variant="h2" align="center">KentaHub</Typography>
             <img className={classes.image} src={kentaBankImg} alt="KentaBank" height="60"/>
         </AppBar>
         <Grow in>
             <Container>
-                <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
+                <Grid container
+                      alignItems="stretch"
+                      spacing={3}
+                      justifyContent="space-between"
+                      className={classes.mainContainer}>
                     <Grid item xs={12} sm={7}>
                         <Posts setCurrentPostId={setCurrentPostId}/>
                     </Grid>

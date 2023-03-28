@@ -1,6 +1,5 @@
 import PostMessage from "../models/postMessage.js";
 import mongoose from "mongoose";
-import Post from "../routes/post.js";
 
 export const getPosts = async (req, res)=>{
     try{
@@ -42,4 +41,17 @@ export const deletePost = async(req, res) => {
 
     await PostMessage.findByIdAndRemove(id)
     res.json({message: 'Post eliminato con successo'})
+}
+
+export const votePost = async(req, res) => {
+    const {id} = req.params
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('Nessun post ha questo id')
+
+    const post = await PostMessage.findById(id)
+    const updatedPost = await PostMessage.findByIdAndUpdate(
+        id,
+        {voteCount: post.voteCount + 1},
+        {new: true}
+    )
+    res.json(updatedPost)
 }

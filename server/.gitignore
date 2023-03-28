@@ -3,3 +3,6 @@
 
 #SECRET
 /passwords
+
+#ENVIRONMENT VARIABLES
+.env
