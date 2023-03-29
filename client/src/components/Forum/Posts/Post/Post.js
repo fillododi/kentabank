@@ -9,7 +9,7 @@ import moment from "moment";
 import useStyles from "./styles";
 import {useDispatch} from "react-redux";
 
-import {deletePost, votePost} from "../../../actions/posts";
+import {deletePost, votePost} from "../../../../actions/posts";
 const Post = ({post, setCurrentPostId}) => {
     const classes = useStyles()
     const dispatch = useDispatch()
