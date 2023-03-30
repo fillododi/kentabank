@@ -4,6 +4,7 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Forum from "./components/Forum/Forum";
+import Auth from "./components/Auth/Auth";
 
 const App = () => {
     return <BrowserRouter>
@@ -11,7 +12,7 @@ const App = () => {
             <Navbar/>
             <Switch>
                 <Route path='/forum' exact><Forum/></Route>
-                <Route path='/auth' exact></Route>
+                <Route path='/auth' exact><Auth/></Route>
                 <Route path='/'></Route>
             </Switch>
         </Container>
